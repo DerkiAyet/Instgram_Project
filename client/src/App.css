@@ -1,38 +1,212 @@
+:root {
+  --light-grey: #cacaca80;
+  --gray-color: #262626;
+  --font-color: #cacaca;
+  --gray-primary-color: #868686;
+}
+
 .App {
-  text-align: center;
+  width: 100%;
+  height: 100vh;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#dark-mode {
+  background-color: #000;
+  color: #fff;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+#light-mode,
+#light-mode .search-container {
+  background-color: #fff;
+  color: #000;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+#light-mode .sidenav {
+  border-right: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+#light-mode .line-decoration {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+#light-mode .search-container .search-input {
+  background-color: var(--light-grey);
+}
+
+#light-mode .account-line .delete-account-icon {
+  color: #26262680;
+}
+
+#light-mode .search-container .input-icon {
+  color: #cacaca;
+}
+
+
+#light-mode .link,
+#light-mode .more_btn .link,
+#light-mode .sidenav__logo,
+#light-mode .application-logo {
+  color: #000;
+}
+
+#light-mode .link:hover,
+#light-mode .switch-input:hover {
+  cursor: pointer;
+  background-color: var(--light-grey);
+}
+
+#light-mode .more-container,
+#light-mode .switch-appear-container {
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+#light-mode span,
+#light-mode p,
+#light-mode .nav-icon {
+  color: #000;
+}
+
+#light-mode .login-form,
+#light-mode .not-have-account
+{
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+#light-mode .authenticate-field{
+  background-color: var(--light-grey);
+}
+
+#light-mode .stories-line{
+  background-color: #fff;
+}
+
+#light-mode .story-img-box{
+  background-color: #fff;
+}
+
+#light-mode .post-container{
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+#light-mode .demande-follow{
+  color: cornflowerblue;
+}
+
+#light-mode .read-more{
+  color: cornflowerblue;
+}
+
+#light-mode .post-options-container{
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+#light-mode .post-options-container ul li{
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.sidenav__logo {
+  width: 120px;
+  margin: 25px;
+  transition: width 0.2s ease-in-out, margin 0.2s ease-in-out;
+}
+
+/*----------Home Page---------------*/
+
+.main-container{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  position: relative;
+}
+
+.homepage-container {
+  flex: 1;
+  height: 100%;
+  display: flex;
+}
+
+.homepage-container .homepage-timeline {
+  flex-grow: 1;
+}
+
+/*--------Intro Page----------*/
+
+.introPage {
+  width: 100%;
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  position: relative;
 }
 
-.App-link {
-  color: #61dafb;
+.dark-intro{
+  background-color: #000;
+  color: #fff;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.introPage img {
+  width: 70px;
+  height: 70px;
+  animation: logoZoom 1s ease-in-out forwards;
+}
+
+.introPage .company-logo {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  bottom: 30px;
+  font-size: 0.85rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.company-logo .meta-company {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.meta-company .meta-logo {
+  font-size: 1.7rem;
+  background: linear-gradient(45deg,
+      #f09433 0%,
+      #e6683c 25%,
+      #dc2743 50%,
+      #cc2366 75%,
+      #bc1888 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.introPage .gradiant-text {
+  background: linear-gradient(45deg,
+      #f09433 0%,
+      #e6683c 25%,
+      #dc2743 50%,
+      #cc2366 75%,
+      #bc1888 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: 1.3rem;
+}
+
+@keyframes logoZoom {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
   }
-  to {
-    transform: rotate(360deg);
+  100% {
+    transform: scale(1);
+    opacity: 1;
   }
 }

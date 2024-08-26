@@ -1,0 +1,178 @@
+.authenticate-container{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-container {
+    flex-direction: row;
+    padding: 0px 50px 0px 50px;
+}
+
+.login-container .login_leftSide {
+    flex: 0.5;
+    min-width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login_leftSide img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    object-fit: cover;
+    object-position: center;
+}
+
+.login-container .login_rightSide {
+    flex: 1;
+    height: 100%;
+    padding: 0 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.authenticate-container .sidenav__logo{
+    width: 140px;
+    margin-top: 15px;
+    margin-bottom: 25px;
+}
+
+.login-form,
+.not-have-account {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #fff;
+    padding: 2rem 1rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-form .authenticate-field-box {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 0 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.authenticate-field-box .authenticate-field {
+    width: 100%;
+    outline: none;
+    border: 0;
+    padding: 10px 8px;
+    font-size: 0.85rem;
+    border-radius: 5px;
+}
+
+.forgot-password {
+    font-size: 0.85rem;
+    color: cornflowerblue;
+    right: 0;
+    align-self: flex-end;
+    margin-top: 0.5rem;
+}
+
+.authenticate-btn {
+    border: 0;
+    outline: none;
+    width: 100%;
+    background-color: cornflowerblue;
+    border-radius: 5px;
+    padding: 10px 8px;
+    cursor: pointer;
+    color: #fff;
+
+}
+
+.not-have-account {
+    flex-direction: row;
+    padding: 1rem;
+}
+
+.not-have-account .signup-link {
+    color: cornflowerblue;
+    margin-left: 10px;
+}
+
+.login-form p {
+    color: red;
+    margin: 0;
+    font-size: 13px;
+}
+
+.login-form .decoration{
+    display: flex;
+    width: 100%;
+    padding: 0 2rem;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.decoration .line-decoration{
+    width: 40%;
+    height: 1px;
+}
+
+.authenticate-with-facebook{
+    margin-top: 1rem;
+    width: 100%;
+    padding: 0 2rem;
+}
+
+.authenticate-with-facebook button{
+    background-color: #1877F2;
+    font-weight: 505;
+}
+
+.authenticate-with-facebook .facebook-icon{
+    margin-right: 10px;
+    font-size: 1.3rem;
+}
+
+/*----------SignUp ------------------*/
+
+.signup-container .signup-box{
+    min-width: 40%;
+    height: 100%;
+    padding: 0 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.signup-box .login-form .authenticate-field-box{
+  margin-bottom: 0.3rem;
+}
+
+.signup-box .authenticate-with-facebook{
+    margin-top: 0.3rem;
+}
+
+.signup-box .authenticate-btn{
+    margin-top: 0.7rem;
+}
+
+.signup-box .intro-txt{
+    padding: 0 2rem;
+    text-align: center;
+    margin-bottom: 0.5rem;
+    color: rgba(202, 202, 202, 0.98) !important; 
+    font-weight: 505;
+    font-size: 1.01rem;
+}
+
+.signup-box .sidenav__logo{
+    margin: 8px;
+}
