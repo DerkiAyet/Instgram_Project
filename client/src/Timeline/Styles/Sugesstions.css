@@ -1,0 +1,159 @@
+:root {
+    --font-grey-color: rgb(168, 168, 168);
+}
+
+.sugesstions-container {
+    width: 100%;
+    height: 100%;
+}
+
+.sugesstions-wrapper {
+    width: 100%;
+    height: 100%;
+    padding: 2rem 1.9rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sugesstions-wrapper button {
+    border: 0;
+    background-color: transparent;
+}
+
+.sugesstions-wrapper .user-acount-line {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.user-acount-line .user-infos-box, 
+.suggested-account-line .user-infos-box {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.user-infos-box .img-user-circle {
+    height: 38px;
+    width: 38px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.user-infos-box .img-user-circle img {
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.user-infos-box .user-parametres {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-parametres span {
+    margin: 0;
+}
+
+.user-parametres .username {
+    font-size: 0.9rem;
+    font-weight: 420;
+}
+
+.user-parametres .fullname {
+    font-weight: 300;
+    text-transform: capitalize;
+    font-size: 0.95rem;
+    color: var(--font-grey-color);
+}
+
+.user-acount-line .switch-account, 
+.suggested-account-line .follow-account {
+    color: cornflowerblue;
+    font-size: 0.85rem;
+    font-weight: 410;
+}
+
+.sugesstions-wrapper .suggested-line {
+    display: flex;
+    width: 100%;
+    margin-top: 1.8rem;
+    margin-bottom: 0.8rem;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--font-grey-color);
+    font-weight: 430;
+}
+
+.suggested-line .see-all {
+    color: #fff;
+    font-size: 0.85rem;
+    font-weight: 410;
+}
+
+.sugesstions-wrapper .suggested-accounts {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.suggested-accounts .suggested-account-line {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 8px;
+}
+
+.suggested-account-line .suggested-for-you{
+    font-size: 0.8rem;
+    font-weight: 300;
+    color: var(--font-grey-color);
+}
+
+.suggested-account-line .img-user-circle{
+    height: 43px;
+    width: 43px;
+}
+
+.sugesstions-wrapper footer{
+    padding: 0 1.5rem;
+    margin-top: 2rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.sugesstions-wrapper footer .footer-links{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.sugesstions-wrapper footer span{
+    font-size: 0.72rem;
+    font-weight: 300;
+    color: var(--font-grey-color);
+    display: flex;
+    align-items: center;
+}
+
+.sugesstions-wrapper footer span .circle-decoration{
+    margin-left: 5px;
+    font-size: 0.12rem;
+}
+
+.sugesstions-container footer .app-name-footer{
+    margin-top: 0.85rem;
+}
+
+.sugesstions-wrapper footer .app-name-footer span{
+   font-size: 0.85rem;
+   text-transform: uppercase;
+}

@@ -1,51 +1,49 @@
-import React, { useContext } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import './Authenticate.css';
+import React, { useContext } from 'react'
+import '../Styles/Authenticate.css';
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import * as Yup from 'yup'
-import { AppContext } from '../App';
-import axios from 'axios';
+import * as Yup from 'yup';
+import { AppContext } from '../../App';
+import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios'
 
-function Login() {
+function SignUp() {
 
-    const { darkMode, setUserAuth } = useContext(AppContext);
-    let navigate = useNavigate();
+    const { darkMode, setUserAuth } = useContext(AppContext)
 
     const initialValues = {
         email: '',
+        fullName: '',
+        userName: '',
         password: ''
     }
 
     const validationSchema = Yup.object().shape({
         email: Yup.string().email().required(),
+        fullName: Yup.string().required(),
+        userName: Yup.string().required(),
         password: Yup.string().required()
     })
 
+    let navigate = useNavigate();
+
     const onSubmit = (data) => {
-        axios.post('http://localhost:3001/auth/login', data)
-            .then((res) => {
-                localStorage.setItem('accessToken', res.data.token);
-                setUserAuth({
-                    userName: res.data.userName,
-                    fullName: res.data.fullName,
-                    userImg: res.data.userImg,
-                    state: true
-                })
-                navigate('/')
+        axios.post('http://localhost:3001/auth/signup', data)
+        .then((res) => {
+            localStorage.setItem('accessToken', res.data.token);
+            setUserAuth({
+                userName: data.userName,
+                fullName: data.fullName,
+                userImg: null,
+                state: true
             })
-            .catch((err) => console.log(err.response.data.error))
+            navigate('/')
+        })
+        .catch((err) => console.log(err.response.data.error))
     }
 
     return (
-        <div className='login-container authenticate-container'>
-            <div className="login_leftSide">
-                <img
-                    src="https://i.imgur.com/P3Vm1Kq.png"
-                    alt="Instagram Screenshots"
-                />
-            </div>
-
-            <div className="login_rightSide">
+        <div className='authenticate-container signup-container'>
+            <div className="signup-box">
                 <Formik
                     initialValues={initialValues}
                     validationSchema={validationSchema}
@@ -62,6 +60,9 @@ function Login() {
                             }
                             alt="Instagram Logo"
                         />
+                        <span className="intro-txt">
+                            Sign up to see photos and videos from your freinds.
+                        </span>
                         <div className="authenticate-field-box">
                             <Field
                                 className="authenticate-field"
@@ -75,19 +76,34 @@ function Login() {
                         <div className="authenticate-field-box">
                             <Field
                                 className="authenticate-field"
+                                name='fullName'
+                                placeholder='Full Name'
+                                type='text'
+                            />
+                            <ErrorMessage name='fullName' component='p' />
+                        </div>
+                        <div className="authenticate-field-box">
+                            <Field
+                                className="authenticate-field"
+                                name='userName'
+                                placeholder='Username'
+                                type='text'
+                            />
+                            <ErrorMessage name='userName' component='p' />
+                        </div>
+                        <div className="authenticate-field-box">
+                            <Field
+                                className="authenticate-field"
                                 name='password'
                                 placeholder='Password'
                                 type='password'
                             />
                             <ErrorMessage name='password' component='p' />
-                            <span className='forgot-password'>
-                                Forgotten your password?
-                            </span>
                         </div>
 
                         <div className="authenticate-field-box">
                             <button type="submit" className='authenticate-btn'>
-                                Log in
+                                Sign up
                             </button>
                         </div>
                         <div className="decoration">
@@ -106,18 +122,18 @@ function Login() {
                         </div>
                     </Form>
                 </Formik>
-
                 <div className="not-have-account">
                     <span>
-                        Don't have an account?
-                        <Link to='/register' className='signup-link'>
-                            Sign up
+                        Already have an account?
+                        <Link to='/login' className='signup-link'>
+                            Log in
                         </Link>
                     </span>
                 </div>
             </div>
+
         </div>
     )
 }
 
-export default Login
+export default SignUp

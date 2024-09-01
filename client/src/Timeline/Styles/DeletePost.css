@@ -1,0 +1,47 @@
+.delete-post-container{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    border-radius: 15px;
+    background-color: #3A3A3B;
+    z-index: 30;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.delete-post-container .delete-message{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    justify-content: center;
+    align-items: center;
+    gap: 3px;
+    border-bottom: 1.5px solid rgba(255, 255, 255, 0.128);
+}
+
+.delete-message .delete-title{
+    font-size: 1.3rem;
+}
+
+.delete-message p{
+    color: rgb(168, 168, 168);
+    font-size: 0.95rem;
+}
+
+.delete-post-container button{
+    width: 100%;
+    border: 0;
+    background-color: transparent;
+    padding: 0.8rem;
+    font-weight: 410;
+    color: #fff;
+}
+
+.delete-post-container .delete-btn{
+    color: rgb(237, 73, 86);
+    border-bottom: 1.5px solid rgba(255, 255, 255, 0.128);
+}

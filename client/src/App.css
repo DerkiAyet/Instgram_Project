@@ -56,9 +56,25 @@
 }
 
 #light-mode .more-container,
-#light-mode .switch-appear-container {
+#light-mode .switch-appear-container, 
+#light-mode .create-post-container, 
+#light-mode .add-text-to-post-container, 
+#light-mode .post-page-container, 
+#light-mode .list-followers-container {
   background-color: #fff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+#light-mode .create-post-container .title-create{
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+#light-mode .create-post-container path{
+  stroke: #000;
+}
+
+#light-mode .create-post-container label{
+  color: #fff;
 }
 
 #light-mode span,
@@ -68,10 +84,18 @@
 }
 
 #light-mode .login-form,
-#light-mode .not-have-account
+#light-mode .not-have-account, 
+#light-mode .forgot-password-form,
+#light-mode .back-to-login,
+#light-mode .reset-password-form,
+#light-mode .create-account
 {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1);
   border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+#light-mode .forgot-password-container .icon-container .icon-circle{
+  border: 1.5px solid #000;
 }
 
 #light-mode .authenticate-field{
@@ -86,8 +110,15 @@
   background-color: #fff;
 }
 
-#light-mode .post-container{
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+#light-mode .post-container, 
+#light-mode .add-text-to-post-container .title-create, 
+#light-mode .new-post, 
+#light-mode .post-comments-section .post-owner-line  {
+  border-bottom: 1.5px solid rgba(0, 0, 0, 0.2);
+}
+
+#light-mode .account-page-wrapper .posts-wrapper{
+  border-top: 1.5px solid rgba(0, 0, 0, 0.2);
 }
 
 #light-mode .demande-follow{
@@ -98,6 +129,23 @@
   color: cornflowerblue;
 }
 
+#light-mode .settings-button {
+  background-color: var(--light-grey);
+  color: #000;
+}
+
+#light-mode .new-post .new-post-border{
+  border: 2px solid rgba(0, 0, 0, 0.2);
+}
+
+#light-mode .new-post .new-post-circle {
+  background-color: #cacaca60;
+}
+
+#light-mode .new-post-circle .create-post-icon path{
+  stroke: rgba(255, 255, 255, 0.9);
+}
+
 #light-mode .post-options-container{
   background-color: #fff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1);
@@ -106,6 +154,42 @@
 #light-mode .post-options-container ul li{
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
+
+#light-mode .form-add-text #text-input{
+  color: #000;
+}
+
+#light-mode .post-comments-section .icons-container{
+  border-bottom: 1.5px solid rgba(0, 0, 0, 0.2);
+  border-top: 1.5px solid rgba(0, 0, 0, 0.2);
+}
+
+#light-mode .edit-profile-form .image-input-container{
+  background-color: rgb(239, 239, 239);
+}
+
+#light-mode .edit-profile-form .image-input-container .input-line label{
+  color: #fff;
+}
+
+#light-mode .edit-profile-form textarea,
+#light-mode .edit-profile-form input,
+#light-mode .edit-profile-form select{
+  color: #000;
+  background-color: transparent;
+}
+
+#light-mode .edit-profile-form .gender-input-container select option{
+  background-color: #fff;
+}
+
+#light-mode .list-followers-container input,
+#light-mode .follower-account-line .remove-account {
+  background-color: rgb( 239, 239, 239);
+  color: #000;
+}
+
+
 
 .sidenav__logo {
   width: 120px;

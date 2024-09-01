@@ -1,0 +1,115 @@
+.list-followers-container{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    z-index: 30;
+    background-color: rgb(38, 38, 38);
+    border-radius: 15px;
+    gap: 10px;
+}
+
+.list-followers-container .title{
+    width: 100%;
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid rgb(255, 255, 255, 0.128);
+    position: relative;
+}
+
+.list-followers-container .title span{
+    font-weight: 500;
+}
+
+.title .list-icon{
+    position: absolute;
+    right: 10px;
+    font-size: 1.7rem;
+}
+
+.list-followers-container .search-input{
+    width: 100%;
+    padding: 15px;
+}
+
+.search-input input{
+   width: 100%;
+   border: 0;
+   outline: none;
+   background-color: rgb(54, 54, 54);
+   padding: 5px;
+   border-radius: 10px;
+   color: #fff;
+}
+
+.list-followers-container .followers-list{
+    height: 300px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 0 15px;
+    gap: 8px;
+}
+
+.followers-list .follower-account-line{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.followers-list .follower-account-line .user-infos-box {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.user-infos-box .img-user-circle {
+    height: 42px;
+    width: 42px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.user-infos-box .img-user-circle img {
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.user-infos-box .user-parametres {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-parametres span {
+    margin: 0;
+}
+
+.user-parametres .username {
+    font-size: 0.9rem;
+    font-weight: 420;
+}
+
+.user-parametres .fullName {
+    font-weight: 300;
+    text-transform: capitalize;
+    font-size: 0.9rem;
+    color: var(--font-grey-color);
+}
+
+.follower-account-line .remove-account {
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: 410;
+    border: 0;
+    padding: 5px 14px;
+    height: auto;
+    border-radius: 10px;
+    background-color: rgb(54, 54, 54);
+}

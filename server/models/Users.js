@@ -40,7 +40,7 @@ module.exports = (sequelize, DataTypes) => {
         },
 
         gender: {
-            type: DataTypes.ENUM('male', 'female'),
+            type: DataTypes.ENUM('male', 'female', 'prefer not to say'),
             allowNull: true
         },
 
@@ -55,6 +55,41 @@ module.exports = (sequelize, DataTypes) => {
         },
     }, {
         timestamps: false
+    })
+
+    Users.associate = ((models) => {
+
+        Users.hasMany(models.Posts, {
+            foreignKey: 'userId',
+            onDelete: 'CASCADE'
+        })
+
+        // Association for users following the current user
+        Users.belongsToMany(models.Users, {
+            through: models.Followers,
+            as: 'Follower', // Users following this user (the alias in many many relation are necessary anhd they have to be unique)
+            foreignKey: 'followingId',// join the table with the current user id 
+            otherKey: 'followerId',// Points to the users who is following the current user
+        });
+
+        // Association for users the current user is following
+        Users.belongsToMany(models.Users, {
+            through: models.Followers,
+            as: 'Following', // Users this user is following
+            foreignKey: 'followerId',  // join the table with the current user id 
+            otherKey: 'followingId', // Points to the users which the curent user is following
+        });
+
+        Users.hasMany(models.Comments, {
+            foreignKey: 'userId',
+            onDelete: 'CASCADE'
+        })
+
+        Users.hasMany(models.Likes, {
+            foreignKey: 'userId',
+            onDelete: 'CASCADE'
+        })
+
     })
 
     return Users;

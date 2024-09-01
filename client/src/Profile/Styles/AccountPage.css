@@ -1,0 +1,204 @@
+.Account-page-container {
+    flex: 1;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.Account-page-container .account-page-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 45px 30px 0 30px;
+}
+
+.account-page-wrapper .profile-infos {
+    display: flex;
+    height: auto;
+    width: 100%;
+    padding: 0 2rem;
+    gap: 5rem;
+    align-items: flex-start;
+    margin-bottom: 3.5rem;
+}
+
+.profile-infos .profile-img {
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    margin-left: 2rem;
+    overflow: hidden;
+}
+
+.profile-infos .profile-img img {
+    height: 100%;
+    width: 100%;
+    border: 50%;
+    object-fit: cover;
+    object-position: center;
+    border: 1px solid rgba(255, 255, 255, 0.128);
+    ;
+}
+
+.profile-infos .profile-parametres {
+    display: flex;
+    flex-direction: column;
+    flex: 0.6;
+    gap: 1.5rem;
+    padding: 10px;
+}
+
+.profile-parametres .profile-settings {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1 !important;
+    gap: 0.7rem;
+    padding: 10px;
+}
+
+.profile-settings .profile-username {
+    font-size: 1.2rem;
+    margin-right: 14px;
+}
+
+.profile-settings .settings-button {
+    border: 0;
+    padding: 5px 10px;
+    border-radius: 10px;
+    background-color: #3A3A3B;
+    color: #fff;
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.profile-settings .follow-btn{
+    background-color: rgb(0, 149, 246);
+    padding: 5px 20px;
+}
+
+.Account-page-container .profile-icon {
+    font-size: 1.7rem;
+    height: 28px;
+    width: 28px;
+}
+
+.profile-infos .about-profile {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+    justify-content: flex-start !important;
+}
+
+.about-profile span {
+    font-size: 0.95rem;
+}
+
+.about-profile .number-span {
+    font-weight: 410;
+    font-size: 1.1rem;
+}
+
+.about-profile .profile-bio {
+    font-size: 0.95rem;
+}
+
+.profile-bio .profile-fullname {
+    font-size: 1.1rem;
+    font-weight: 420;
+}
+
+.account-page-wrapper .posts-wrapper{
+    padding-top: 3.5rem;
+    border-top: 1.5px solid rgba(255, 255, 255, 0.128);
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.posts-wrapper .post-img-container{
+    flex: 0 1 32.9%;
+    height: 300px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    background-color: #000;
+}
+
+.posts-wrapper .post-img-container img{
+    height: 100%;
+    width: 100%;
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+
+.post-img-container .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(255 255  255 / 3%);
+    opacity: 0;
+    transition: opacity 0.3s ease, backdrop-filter 0.3s ease;
+    backdrop-filter: blur(1px); 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.post-img-container:hover .overlay {
+    opacity: 1;
+}
+
+.post-img-container:hover img {
+    opacity: 0.9;
+}
+
+.overlay .post-parametres{
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.post-parametres .post-icon{
+    font-size: 1.75rem;
+    display: flex;
+    align-items: center;
+    color: #fff;
+}
+
+.post-parametres .post-icon span{
+    font-size: 1.4rem;
+    font-family: 'Roboto', 'Poppins', sans-serif;
+}
+
+#light-mode .post-parametres .post-icon span{
+    color: #fff;
+}
+
+.Account-page-container footer{
+    width: 100%;
+    padding: 40px 25px;
+    padding-top: 60px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+}
+
+.Account-page-container footer span{
+    font-size: 0.75rem;
+    font-weight: 300;
+    cursor: pointer;
+}
+
+.Account-page-container footer span:hover{
+    text-decoration: underline;
+}

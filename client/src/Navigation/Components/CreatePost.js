@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import '../Styles/SideNav.css';
 import axios from "axios";
+import { AppContext } from "../../App";
 
-export const CreatePost = () => {
+export const CreatePost = ({ showCreatePostRef, hideForm }) => {
 
     const [selectedImage, setSelectedImage] = useState(null);
     const [imageFile, setImageFile] = useState(null);
@@ -22,22 +23,36 @@ export const CreatePost = () => {
         }
     };
 
-    const handlePostSubmit = async () => {
+    const { listOfPosts, setListOfPosts, userAuth } = useContext(AppContext);
+
+    const handlePostSubmit = async (e) => {
+
+        e.preventDefault();
+
         if (imageFile && text) {
             const formData = new FormData();
-            formData.append('image', imageFile);
-            formData.append('text', text);
+            formData.append('postImg', imageFile);
+            formData.append('postText', text);
 
-            try {
-                const response = await axios.post('/api/your-endpoint', formData, {
-                    headers: {
-                        'Content-Type': 'multipart/form-data',
-                    },
-                });
-                console.log('Response:', response.data);
-            } catch (error) {
-                console.error('Error posting data:', error);
-            }
+            axios.post('http://localhost:3001/posts/addpost', formData, {
+                headers: {
+                    accessToken: localStorage.getItem('accessToken'),
+                    'Content-Type': 'multipart/form-data',
+                },
+            })
+                .then((response) => {
+                    console.log('Backend response:', response.data);
+                    const newPost = {
+                        ...response.data.newPost,
+                        userName: userAuth.userName,
+                        userImg: userAuth.userImg,
+                        commentCount: 0,
+                        likesCount: 0
+                    };
+                    setListOfPosts([newPost, ...listOfPosts]);
+                    hideForm();
+                })
+                .catch((error) => console.error('Error posting data:', error));
         } else {
             alert('Please enter text and select an image.');
         }
@@ -52,7 +67,7 @@ export const CreatePost = () => {
     return (
 
         (showForm ? (
-            <div className="create-post-container">
+            <div className="create-post-container" ref={showCreatePostRef}>
 
                 <div className="title-create">
                     <span>
@@ -89,7 +104,7 @@ export const CreatePost = () => {
 
             </div>
         ) : (
-            <form className="add-text-to-post-container" onSubmit={handlePostSubmit}>
+            <form className="add-text-to-post-container" onSubmit={handlePostSubmit} ref={showCreatePostRef}>
                 <div className="title-create">
 
                     <i class='bx bx-arrow-back'
@@ -111,13 +126,16 @@ export const CreatePost = () => {
                             <img src={selectedImage} alt="Selected" style={{ width: '300px', height: 'auto' }} />
                         </div>
                     )}
-                    <form className="form-add-text">
+                    <div className="form-add-text">
                         <div className="user-parameters">
                             <div className="user-img">
-                                <img src="" alt="" />
+                                <img
+                                    src={!userAuth.userImg ? "default_picture.jpeg" : `http://localhost:3001/uploads/${userAuth.userImg}`}
+                                    alt="user"
+                                />
                             </div>
                             <span className="username">
-                                username
+                                { userAuth.userName }
                             </span>
                         </div>
                         <textarea
@@ -127,7 +145,7 @@ export const CreatePost = () => {
                             value={text}
                             onChange={(e) => setText(e.target.value)}
                         />
-                    </form>
+                    </div>
 
                 </div>
             </form>

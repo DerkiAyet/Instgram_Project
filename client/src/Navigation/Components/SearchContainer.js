@@ -1,34 +1,33 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import '../Styles/SideNav.css';
 import { AccountLine } from "./AccountLine";
+import axios from "axios";
 
-export const SearchContainer = () => {
-
-    const accountList = [
-        {
-            name: 'cristiano',
-            bio: 'cristiano ronaldo'
-        },
-        {
-            name: 'cristiano',
-            bio: 'cristiano ronaldo'
-        },
-        {
-            name: 'cristiano',
-            bio: 'cristiano ronaldo'
-        },
-        {
-            name: 'cristiano',
-            bio: 'cristiano ronaldo'
-        }
-    ]
+export const SearchContainer = ({ searchRef, hideSearch }) => {
 
     const [searchValue, setSearchValue] = useState('');
 
     const clear = () => setSearchValue('')
 
+    const [listOfUsers, setListOfUsers] = useState([]);
+
+    useEffect(() => {
+
+        axios.get('http://localhost:3001/auth')
+            .then((res) => setListOfUsers(res.data))
+            .catch((err) => console.error(err.data))
+
+    }, [])
+
+    let filterdUsers = listOfUsers.filter((user) => {
+        return (
+            user.userName.toLowerCase().startsWith(searchValue.toLowerCase()) ||
+            user.FullName.toLowerCase().startsWith(searchValue.toLowerCase())
+        )
+    })
+
     return (
-        <div className="search-container">
+        <div className="search-container" ref={searchRef}>
             <p>
                 Search
             </p>
@@ -50,9 +49,17 @@ export const SearchContainer = () => {
                     <p className='clear-btn'>Clear all</p>
                 </div>
                 <div className="accounts-list">
-                    {accountList.map((account) => (
-                        <AccountLine name={account.name} bio={account.bio} />
-                    ))}
+                    {
+                        searchValue !== '' &&
+                        filterdUsers.map((account) => (
+                            <AccountLine
+                                userName={account.userName}
+                                fullName={account.FullName}
+                                userImg={account.userImg}
+                                hideSearch={() => hideSearch()}
+                            />
+                        ))
+                    }
                 </div>
             </div>
 

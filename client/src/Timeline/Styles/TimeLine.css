@@ -9,33 +9,31 @@
 }
 
 .posts-timeline {
-    flex-grow: 1;
+    flex: 1;
     height: 100vh;
 }
 
 .timeline-left {
-    width: 100%;
+    flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-
-
 .timeline-left .stories-line {
-    width: 61vw;
+    width: 51vw;
     height: 90px;
     background-color: black;
     overflow-x: auto;
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 0.3rem;
+    gap: 0.2rem;
 }
 
 .stories-line .story-border {
-    width: 66px;
-    height: 66px;
+    width: 68px;
+    height: 68px;
     border-radius: 50%;
     background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
     display: flex;
@@ -55,7 +53,6 @@
     align-items: center;
     overflow: hidden;
     z-index: 1;
-
 }
 
 .story-img-box img {
@@ -109,6 +106,7 @@
     gap: 8px;
     justify-content: center;
     align-items: center;
+    cursor: pointer !important;
 }
 
 .owner-infos .post-user-img {
@@ -116,7 +114,6 @@
     height: 34px;
     border-radius: 50%;
     object-fit: cover;
-    object-position: center;
 }
 
 .owner-infos .owner-username {
@@ -138,11 +135,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
 }
 
 .post-img-container>.post-img {
     width: 100%;
-    /* max-width: 500px; */
+    min-width: 100%;
     border-radius: 10px;
     object-fit: cover;
     object-position: center;

@@ -9,7 +9,7 @@ import { CreatePost } from './CreatePost';
 
 function SideNav() {
 
-  const { darkMode } = useContext(AppContext);
+  const { darkMode, userAuth } = useContext(AppContext);
   const [moreBtnClicked, setMoreBtn] = useState(false);
   const moreContainerRef = useRef('');
   const btnMoreRef = useRef(''); // this is used to fix the issue of the same execution of the useEffect and the toggle handler
@@ -84,6 +84,53 @@ function SideNav() {
     setMoreBtn(true)
   }
 
+  //----------------Create Posts appearence --------------
+
+
+  const createPostRef = useRef(null)
+
+  useEffect(() => {
+
+    const handleShowCreatePost = (e) => {
+      if (createPostRef.current && !createPostRef.current.contains(e.target)) {
+        setActiveComponent(null)
+      }
+    }
+
+    document.addEventListener('mousedown', handleShowCreatePost);
+
+    return () => {
+      document.removeEventListener('mousedown', handleShowCreatePost)
+    }
+
+  }, [])
+
+  //----------------Search Container----------------
+
+  const showSearchContainer = useRef(null);
+  const showSearchBtn = useRef(null);
+
+  useEffect(() => {
+
+    const handleShowSearchContainer = (e) => {
+      if (showSearchContainer.current &&
+        !showSearchContainer.current.contains(e.target) &&
+        showSearchBtn.current &&
+        !showSearchBtn.current.contains(e.target)
+      ) {
+        setActiveComponent(null);
+        zoom();
+      }
+    }
+
+    document.addEventListener('mousedown', handleShowSearchContainer);
+
+    return () => {
+      document.removeEventListener('mousedown', handleShowSearchContainer)
+    }
+
+  }, [])
+
   return (
 
     <div className="sidenav-container">
@@ -123,19 +170,19 @@ function SideNav() {
               </Link>
             </li>
             <li className='search-link'>
-              <Link
-                to={'/'}
+              <div
                 className={`link ${minimizeNav ? 'minimize-link' : ''}`}
                 onClick={() => {
                   minimize();
                   handleButtonClick('search')
                 }}
+                ref={showSearchBtn}
               >
                 <i class='bx bx-search nav-icon' ></i>
                 <span className={minimizeNav ? 'hide' : ''} >
                   search
                 </span>
-              </Link>
+              </div>
             </li>
             <li>
               <Link
@@ -215,14 +262,18 @@ function SideNav() {
             </li>
             <li>
               <Link
-                to={'/'}
+                to={'/profile'}
                 className={`link ${minimizeNav ? 'minimize-link' : ''}`}
                 onClick={() => {
                   zoom();
                   handleButtonClick('profile')
                 }}
               >
-                <img src="" alt="" className="profile-img" />
+                <img
+                  src={!userAuth.userImg ? "/default_picture.jpeg" : `http://localhost:3001/uploads/${userAuth.userImg}`}
+                  alt="profile"
+                  className="profile-img"
+                />
                 <span className={minimizeNav ? 'hide' : ''}>
                   profile
                 </span>
@@ -255,15 +306,19 @@ function SideNav() {
         </div>
         {
           activeComponent === 'search' &&
-          <SearchContainer />
+          <SearchContainer 
+          searchRef={showSearchContainer}
+          hideSearch={() => {setActiveComponent(null); zoom()}}
+          />
         }
-
-        {
-          activeComponent === 'create' &&
-          <CreatePost />
-        }
-
       </div>
+      {
+        activeComponent === 'create' &&
+        <CreatePost
+          showCreatePostRef={createPostRef}
+          hideForm={() => setActiveComponent(null)}
+        />
+      }
     </div>
 
 
