@@ -15,10 +15,10 @@ A full-stack social media web app that recreates the Instagram experience, with 
 
 ## Tech Stack
 
-**Frontend:** React
-**Backend:** Node.js, Express 
-**Database:** MySQL, Sequelize ORM 
-**Real-time:** Socket.io
+- **Frontend:** React
+- **Backend:** Node.js, Express 
+- **Database:** MySQL, Sequelize ORM 
+- **Real-time:** Socket.io
 
 ## Getting Started
 
