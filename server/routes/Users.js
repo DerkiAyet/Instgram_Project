@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const router = express.Router();
 
@@ -52,7 +53,7 @@ router.post('/signup', async (req, res) => {
                     userId: newUser.userId,
                     userName: userName
                 },
-                'ImportantSecret'
+                process.env.JWT_SECRET
             )
 
             res.status(201).json({
@@ -116,7 +117,7 @@ router.post('/login', async (req, res) => {
                         userId: userFound.userId,
                         userName: userFound.userName
                     },
-                    'ImportantSecret'
+                    process.env.JWT_SECRET
                 )
 
                 res.status(201).json({
