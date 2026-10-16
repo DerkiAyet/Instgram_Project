@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const router = express.Router();
 const nodemailer = require('nodemailer');
@@ -31,8 +32,8 @@ router.post('/forgot-password', async (req, res) => {
                 port: 465, // or 587 for TLS
                 secure: true, // true for port 465, false for port 587
                 auth: {
-                    user: 'halimaderki399@gmail.com',
-                    pass: 'gjbb imoc wzll qwpv', 
+                    user: process.env.MAIL_USER,
+                    pass: process.env.MAIL_PWD, 
                 },
             });
 
@@ -41,7 +42,7 @@ router.post('/forgot-password', async (req, res) => {
             transporter.sendMail({
                 from: {
                     name: 'Instagram',
-                    address: 'halimaderki399@gmail.com'
+                    address: process.env.MAIL_USER
                 },
                 to: email,
                 subject: 'Reset Password',
@@ -93,7 +94,7 @@ router.post('/reset-password/:token', async (req, res) => {
                     userId: user.userId,
                     userName: user.userName
                 },
-                'ImportantSecret'
+                process.env.JWT_SECRET
             );
 
             await resetEntry.destroy();
