@@ -53,6 +53,8 @@ DB_USER=root
 DB_PASSWORD=your_password
 DB_NAME=instagram_db
 JWT_SECRET=your_secret
+MAIL_USER=your_email_test
+MAIL_PWD=email_pwd
 PORT=5000
 ```
 
