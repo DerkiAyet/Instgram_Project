@@ -1,4 +1,5 @@
 const { verify } = require('jsonwebtoken')
+require('dotenv').config();
 
 const validateToken = (req, res, next) => {
 
@@ -11,7 +12,7 @@ const validateToken = (req, res, next) => {
                 error: "User not logged in"
             })
         }else {
-            const validToken = verify(accessToken, 'ImportantSecret');
+            const validToken = verify(accessToken, process.env.JWT_SECRET);
             req.user = validToken;
     
             if(validToken) {
