@@ -56,16 +56,6 @@ JWT_SECRET=your_secret
 PORT=5000
 ```
 
-## Project Structure
-
-├── client/ # React frontend
-├── server/ # Express API + Socket.io
-│ ├── models/ # Sequelize models
-│ ├── routes/
-│ └── index.js # main entrypoint
-└── README.md
-
-
 ## Possible Improvements
 
 - Stories and reels
